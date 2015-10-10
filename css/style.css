@@ -71,12 +71,12 @@ input[type=levelPoints] {
 
 #mainBody {
   margin: 10px 0px 10px 0px;
-  width: 810px; 
+  width: 820px; 
   float: left;
 }
 
 #display {
-  width: 810px;
+  width: 820px;
   height: 75px;
   background: white;
   border-bottom: 2px solid black;
@@ -86,7 +86,7 @@ input[type=levelPoints] {
 }
 
 #imageContainer {
-  width: 810px;
+  width: 820px;
   height: 400px;
   background: white;
   border-bottom: 2px solid black;
@@ -96,7 +96,7 @@ input[type=levelPoints] {
 }
 
 #roundOptions {
-  width: 810px;
+  width: 820px;
   height: 75px;
   background: white;
   border-bottom: 2px solid black;
@@ -127,7 +127,7 @@ input[type=button] {
 }
 
 #startAndTimer {
-  width: 810px;
+  width: 820px;
   height: 75px;
   background: white;
   border-bottom: 2px solid black;
@@ -189,3 +189,21 @@ input[type=startButton] {
   margin-top: 20px;
 }
 
+/*GRID STARTS*/
+
+.grid {
+  width: 820px;
+  height: 400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.grid li {
+  width: 80px;
+  height: 133px;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.square { background: black; border: 1px solid white;  }

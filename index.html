@@ -3,6 +3,7 @@
 <head>
   <title>Trash Talk | The game that pays homage to trash TV from the 90s to now</title>
   <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
   <script type="text/javascript" src="./js/app.js"></script>
 </head>
 <body>
@@ -11,61 +12,131 @@
 
   <div id="playerOne">
 
-  <p>***Player One Section</p>
+    <div class="playerProfiles">
+      <p>PLAYER 1</p>
 
-    <div id="playerOneProfile">
-      <p>**Player One Profile</p>
-      <!-- <img src=add-profile-pic-1></img> -->
+      <div class="circle"></div>
+
     </div>
 
-    <div id="playerOneScoreboard">
-      <p>**Player One Scoreboard</p>
-      <!-- create scoreboard with a title at top and 3 lines below (ol, li) -->
+    <div class="playerScoreboards">
+      <p>SCOREBOARD</p>
+      <li class="scoreboardContainers">
+        <ul class="rows">
+          <div class="levelNum">Level 1</div>
+          <input type="levelPoints" value="">
+        </ul>
+        <ul class="rows">
+          <div class="levelNum">Level 2</div>
+          <input type="levelPoints" value="">
+        </ul>
+        <ul class="rows">
+          <div class="levelNum">Level 3</div>
+          <input type="levelPoints" value="">
+        </ul>
+      </li>
     </div>
 
   </div>
-  
+
   <div id="mainBody">
 
-  <p>***Main Body</p>
+    <div id="display" value="">THIS IS THE DISPLAY</div>
 
-    <div id="display">**"This is your display!"</div>
 
     <div id="imageContainer">
-      <p>**Image Container</p>
-      <!-- create grid using classwork with squares + the hoff -->
-      <!-- for v2 give each square a unique id 1-30 then remove bground or hide -->
+    <!-- 81 * 133 square - 30 squares -->
+      <ul class="grid">
+            <li class="square" value="1"></li>
+            <li class="square" value="2"></li>
+            <li class="square" value="3"></li>
+            <li class="square" value="4"></li>
+            <li class="square" value="5"></li>
+            <li class="square" value="6"></li>
+            <li class="square" value="7"></li>
+            <li class="square" value="8"></li>
+            <li class="square" value="9"></li>
+            <li class="square" value="10"></li>
+            <li class="square" value="11"></li>
+            <li class="square" value="12"></li>
+            <li class="square" value="13"></li>
+            <li class="square" value="14"></li>
+            <li class="square" value="15"></li>
+            <li class="square" value="16"></li>
+            <li class="square" value="17"></li>
+            <li class="square" value="18"></li>
+            <li class="square" value="19"></li>
+            <li class="square" value="20"></li>
+            <li class="square" value="21"></li>
+            <li class="square" value="22"></li>
+            <li class="square" value="23"></li>
+            <li class="square" value="24"></li>
+            <li class="square" value="25"></li>
+            <li class="square" value="26"></li>
+            <li class="square" value="27"></li>
+            <li class="square" value="28"></li>
+            <li class="square" value="29"></li>
+            <li class="square" value="30"></li>
+          </ul>
     </div>
 
     <div id="roundOptions">
-      <p>**Round Options</p>
-      <!-- needs a title 'Choose your answer' -->
-      <!-- needs three buttons in a row, A-B-C -->
+      <li id="optionContainer">
+        <ul class="rows">
+          <div class="options">A:</div>
+          <input type="button" value="TV Show Name">
+        </ul>
+        <ul class="rows">
+          <div class="options">B:</div>
+          <input type="button" value="TV Show Name">
+        </ul>
+        <ul class="rows">
+          <div class="options">C:</div>
+          <input type="button" value="TV Show Name">
+        </ul>
+      </li>
     </div>
 
     <div id="startAndTimer">
-      <p>**Start Button and Timer</p>
-      <div id="startButton"><!-- add image here for start button --></div>
-      <div id="timer"><!-- add timer here --></div>
+      <div id="startTimerContainer">
+        <li id="startTimerContainerList">
+          <ul class="rows">
+          <input type="startButton" value="START">
+            <div id="timer">TIMER</div>          
+          </ul>
+        </li>
+      </div>
     </div>
-  
+
   </div>
 
   <div id="playerTwo">
 
-    <p>***Player Two Section</p>
-
-    <div id="playerTwoProfile">
-      <p>**Player Two Profile</p>
-      <!-- <img src=add-profile-pic-2></img> -->
+    <div class="playerProfiles">
+      <p>PLAYER 2</p>
+      <div class="circle"></div>
     </div>
 
-    <div id="playerTwoScoreboard">
-      <p>**Player Two Scoreboard</p>
-      <!-- create scoreboard with a title at top and 3 lines below (ol, li) -->
+    <div class="playerScoreboards">
+      <p>SCOREBOARD</p>
+      <li class="scoreboardContainers">
+        <ul class="rows">
+          <div class="levelNum">Level 1</div>
+          <!-- <input type="levelNum" id="levelNum" value=""> -->
+          <input type="levelPoints" value="">
+        </ul>
+        <ul class="rows">
+          <div class="levelNum">Level 2</div>
+          <input type="levelPoints" value="">
+        </ul>
+        <ul class="rows">
+          <div class="levelNum">Level 3</div>
+          <input type="levelPoints" value="">
+        </ul>
+      </li>
     </div>
 
-    </div>
+  </div>
 
 </body>
 </html>

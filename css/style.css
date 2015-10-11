@@ -74,7 +74,7 @@ input[type=levelPoints] {
   width: 820px; 
   float: left;
 }
-
+/*
 #display {
   width: 820px;
   height: 75px;
@@ -83,6 +83,17 @@ input[type=levelPoints] {
   color: black;
   line-height: 75px;
   text-align: center;
+}*/
+
+input[type=display] { 
+  width: 820px;
+  height: 75px;
+  background: white;
+  border-bottom: 2px solid black;
+  color: black;
+  line-height: 75px;
+  text-align: center;
+  border: none;
 }
 
 #imageContainer {
@@ -196,6 +207,7 @@ input[type=startButton] {
   height: 400px;
   margin: 0 auto;
   padding: 0;
+  background-image: url("towie.png");
 }
 
 .grid li {

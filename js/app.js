@@ -46,24 +46,25 @@ $(function(){
 //  --- BUILD: GRID  ---> BLOCKER
 // Get grid lis to dissappear one by one at different speeds ---> BLOCKER
 
-//WORKING *ISH FUNCTION
+//WORKING FUNCTION
 function hideSquares(){
- var $lis = $("li");
- $.each($lis, function(index, element){
+ var $squares = shuffleArray(); //run shuffle array function
+ $.each($squares, function(index, element){
   setTimeout(function(){
     $(element).css("background", "none");
   }, 500 * index+1);
  });
 };
 
-function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
+function shuffleArray() {
+  var $lis = $("li");
+    for (var i = $lis.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+        var temp = $lis[i];
+        $lis[i] = $lis[j];
+        $lis[j] = temp;
     }
-    return array;
+    return $lis;
 }
 
 // //looping - auto starts at 0

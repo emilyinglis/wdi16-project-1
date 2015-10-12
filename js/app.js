@@ -10,67 +10,62 @@ var display,
     var rounds = {
       "Gladiators": {
         title: "Gladiators",
-        image: "http://i1.mirror.co.uk/incoming/article6243049.ece/ALTERNATES/s1200/Gladiators.jpg",
+        image: "./images/gladiators.png",
         answers: ["Gladiators", "Blue Peter", "Full House"]
       },
       "Fun House": {
         title: "Fun House",
-        image: "http://beaut.ie/wp-content/uploads/2015/07/funhouse-2-1200x630-c-default.jpg",
+        image: "./images/funhouse.png",
         answers: ["Keenan & Kel", "Fun House", "Noel's House Party"]
       },
       "Noel's Houseparty": {
         title: "Noel's Houseparty",
-        image: "http://i4.mirror.co.uk/incoming/article6193535.ece/ALTERNATES/s1200/Noel-Edmonds-with-Mr-Blobby.jpg",
-        answers: ["This Is Your Life", "Noel's Houseparty", "Blah"]
+        image: "./images/noels-house-party.png",
+        answers: ["This Is Your Life", "Noel's Houseparty", "Blind Date"]
       },
       "Keenan & Kel": {
         title: "Keenan & Kel",
-        image: "http://imagesmtv-a.akamaihd.net/uri/mgid:uma:image:mtv.com:10855702?quality=0.8&format=jpg&width=1440&height=810&.jpg",
-        answers: ["Blah", "Keenan & Kel", "Blah"]
+        image: "./images/keenan-kel.png",
+        answers: ["Buffy", "Keenan & Kel", "Blind Date"]
       },
       "Power Rangers": {
         title: "Power Rangers",
-        image: "http://cdn.wegotthiscovered.com/wp-content/uploads/powerrangers8.jpg",
+        image: "./images/power-rangers.png",
         answers: ["Gladiators", "Power Rangers", "Noel's House Party"]
       },
       "Xena: Warrior Princess": {
-        title: "Power Rangers",
-        image: "http://static02.mediaite.com/themarysue/uploads/2015/07/lucy_lawless_-_xena_warrior_princess_1241564937.jpeg",
+        title: "Xena: Warrior Princess",
+        image: "./images/xena.png",
         answers: ["Power Rangers", "Buffy", "Xena: Warrior Princess"]
       },
       "The X Files": {
         title: "The X Files",
-        image: "http://blogs-images.forbes.com/merrillbarr/files/2015/03/The-X-Files.jpg",
+        image: "./images/xfiles.png",
         answers: ["The X Files", "This Is Your Life", "Buffy"]
       },
       "CD:UK": {
         title: "CD:UK",
-        image: "http://i2.cdnds.net/13/08/618x407/uktv-ant-and-dec-tv-career-in-pictures-4.jpg",
+        image: "./images/cduk.png",
         answers: ["Top of the Pops", "Eastenders", "CD:UK"]
       },
       "Saved By The Bell": {
         title: "Saved By The Bell",
-        image: "http://cdn0.dailydot.com/cache/0f/c3/0fc3c9b9609ddb4426cba3b658c899ed.jpg",
+        image: "./images/saved-by-bell.png",
         answers: ["Sister Sister", "Power Rangers", "Saved By The Bell"]
       },
       "Baywatch": {
         title: "Baywatch",
-        image: "http://cdn29.us2.fansshare.com/pictures/baywatch/baywatch-rgb-2067345650.jpg",
+        image: "./images/baywatch.png",
         answers: ["Baywatch", "This Is Your Life", "Gladiators"]
       },
       "Blind Date": {
         title: "Blind Date",
-        image: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/3/1438618507044/da409a08-b84c-4cce-930e-435cc5c4981b-2060x1236.jpeg",
+        image: "./images/blind-date.png",
         answers: ["Live & Kicking", "Blind Date", "Surprise Surprise"]
-      },
-      "Surprise Surprise": {
-        title: "Surprise Surprise",
-        image: "http://cdn.images.express.co.uk/img/dynamic/galleries/x701/66662.jpg",
-        answers: ["Surprise Surprise", "Blind Date", "Top Of The Pops"]
       },
       "This Is Your Life": {
         title: "This Is Your Life",
-        image: "http://elmerbernstein.com/wp-content/uploads/2003/02/thisisyourlife.jpg",
+        image: "./images/this-life.png",
         answers: ["Surprise Surprise", "Blind Date", "This Is Your Life"]
       }
     }
@@ -105,14 +100,15 @@ var display,
   var player   = (startClickCounter % 2 === 0) ? 2 : 1;
   var level    = getRoundLength();
 
+  //BLOCKER: NOT SURE ROUNDERCOUNTER IS ACTUALLY INCRIMENTING ANYWHERE
   $("#display").val("ROUND "+ roundCounter +": PLAYER "+ player +" | Choose your answer from the 3 options below!");
   hideSquares(level);
 
-  setTimeout(function(){
-    resetBoard();
-  }, totalTime + 2000)
+  // setTimeout(function(){
+  //   resetBoard();
+  // }, totalTime + 2000)
   
-  countdownTimer();
+  // countdownTimer();
   
   (startClickCounter % 2 === 0) ? roundCounter++ : false;
   startClickCounter++;
@@ -144,19 +140,19 @@ function shuffleArray() {
   return $lis;
 };
 
-function countdownTimer(time) { 
-  var counter  = 0
-  var interval = 1000;
-  var clock;
-  clock = setInterval(function() {
-    if (!playing) return false; 
-    var clockValue = (totalTime - counter) / 1000;
-    $("#timer").html(clockValue);
-    counter += interval;
+// function countdownTimer(time) { 
+//   var counter  = 0
+//   var interval = 1000;
+//   var clock;
+//   clock = setInterval(function() {
+//     if (!playing) return false; 
+//     var clockValue = (totalTime - counter) / 1000;
+//     $("#timer").html(clockValue);
+//     counter += interval;
 
-    if (clockValue === 0) return clearInterval(clock);
-  }, interval);
-}
+//     if (clockValue === 0) return clearInterval(clock);
+//   }, interval);
+// }
 
 //NOT WORKING
 // function resetTimer(){
@@ -166,15 +162,30 @@ function countdownTimer(time) {
 // }
 
 function guess(){
+  var player   = (startClickCounter % 2 === 0) ? 2 : 1;
+  // var playerOneResults   = document.getElementsByID
+
   if (!playing) return false;
-  if ($(this).val() === currentChoice.title) {
-    console.log("correct"); 
-    
+    if ($(this).val() === currentChoice.title) {
+      console.log("correct"); 
+      if (player === 1) {
+      console.log("player 2 was correct"); //working
+      $("#display").val("Congrats Player 2! You nailed Round "+ roundCounter +". Player 1, you know the drill."); //working
+
+        // if ("#levelPoints1") !== "" { //if the level points element DOES NOT contain an empty string (i.e. has win/lose) then move on
+        // } else {
+        //   ("#levelPoints1").val("player 2 wins test");  
+        // }
+        
+     } else {
+      console.log("player 1 was correct"); 
+      $("#display").val("Congrats Player 1! You nailed Round "+ roundCounter +". So Player 2 you're up. Click Start now.");
+    }
   } else {
     console.log("incorrect");
   }
-  resetTimer();
-  resetBoard();
+// resetTimer(); (BLOCKER)
+resetBoard();
 }
 
 

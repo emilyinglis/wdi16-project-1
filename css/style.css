@@ -61,7 +61,7 @@ li {
   border-bottom: 1px solid black;
 }
 
-input[type=levelPoints] { 
+.levelPoints { 
   padding: 3px;
   margin: 0 auto;
   width: 115px;

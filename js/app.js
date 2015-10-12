@@ -11,27 +11,67 @@ var rounds = {
   "Gladiators": {
     title: "Gladiators",
     image: "http://i1.mirror.co.uk/incoming/article6243049.ece/ALTERNATES/s1200/Gladiators.jpg",
-    answers: ["Gladiators", "Blah", "Blah"]
+    answers: ["Gladiators", "Blue Peter", "Full House"]
   },
   "Fun House": {
     title: "Fun House",
     image: "http://beaut.ie/wp-content/uploads/2015/07/funhouse-2-1200x630-c-default.jpg",
-    answers: ["Blah", "Fun House", "Blah"]
+    answers: ["Keenan & Kel", "Fun House", "Noel's House Party"]
   },
   "Noel's Houseparty": {
     title: "Noel's Houseparty",
     image: "http://i4.mirror.co.uk/incoming/article6193535.ece/ALTERNATES/s1200/Noel-Edmonds-with-Mr-Blobby.jpg",
-    answers: ["Blah", "Noel's Houseparty", "Blah"]
-  }
+    answers: ["This Is Your Life", "Noel's Houseparty", "Blah"]
+  },
   "Keenan & Kel": {
     title: "Keenan & Kel",
     image: "http://imagesmtv-a.akamaihd.net/uri/mgid:uma:image:mtv.com:10855702?quality=0.8&format=jpg&width=1440&height=810&.jpg",
     answers: ["Blah", "Keenan & Kel", "Blah"]
-  }
-  "Keenan & Kel": {
-    title: "Keenan & Kel",
-    image: "http://imagesmtv-a.akamaihd.net/uri/mgid:uma:image:mtv.com:10855702?quality=0.8&format=jpg&width=1440&height=810&.jpg",
-    answers: ["Blah", "Keenan & Kel", "Blah"]
+  },
+  "Power Rangers": {
+    title: "Power Rangers",
+    image: "http://cdn.wegotthiscovered.com/wp-content/uploads/powerrangers8.jpg",
+    answers: ["Gladiators", "Power Rangers", "Noel's House Party"]
+  },
+  "Xena: Warrior Princess": {
+    title: "Power Rangers",
+    image: "http://static02.mediaite.com/themarysue/uploads/2015/07/lucy_lawless_-_xena_warrior_princess_1241564937.jpeg",
+    answers: ["Power Rangers", "Buffy", "Xena: Warrior Princess"]
+  },
+  "The X Files": {
+    title: "The X Files",
+    image: "http://blogs-images.forbes.com/merrillbarr/files/2015/03/The-X-Files.jpg",
+    answers: ["The X Files", "This Is Your Life", "Buffy"]
+  },
+  "CD:UK": {
+    title: "CD:UK",
+    image: "http://i2.cdnds.net/13/08/618x407/uktv-ant-and-dec-tv-career-in-pictures-4.jpg",
+    answers: ["Top of the Pops", "Eastenders", "CD:UK"]
+  },
+  "Saved By The Bell": {
+    title: "Saved By The Bell",
+    image: "http://cdn0.dailydot.com/cache/0f/c3/0fc3c9b9609ddb4426cba3b658c899ed.jpg",
+    answers: ["Sister Sister", "Power Rangers", "Saved By The Bell"]
+  },
+  "Baywatch": {
+    title: "Baywatch",
+    image: "http://cdn29.us2.fansshare.com/pictures/baywatch/baywatch-rgb-2067345650.jpg",
+    answers: ["Baywatch", "This Is Your Life", "Gladiators"]
+  },
+  "Blind Date": {
+    title: "Blind Date",
+    image: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/3/1438618507044/da409a08-b84c-4cce-930e-435cc5c4981b-2060x1236.jpeg",
+    answers: ["Live & Kicking", "Blind Date", "Surprise Surprise"]
+  },
+  "Surprise Surprise": {
+    title: "Surprise Surprise",
+    image: "http://cdn.images.express.co.uk/img/dynamic/galleries/x701/66662.jpg",
+    answers: ["Surprise Surprise", "Blind Date", "Top Of The Pops"]
+  },
+  "This Is Your Life": {
+    title: "This Is Your Life",
+    image: "http://elmerbernstein.com/wp-content/uploads/2003/02/thisisyourlife.jpg",
+    answers: ["Surprise Surprise", "Blind Date", "This Is Your Life"]
   }
 }
 

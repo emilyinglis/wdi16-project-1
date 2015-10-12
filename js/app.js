@@ -1,13 +1,155 @@
-window.onload = function(){
+var display,
+    startClickCounter = 1, // The number of times that the player has clicked start
+    roundCounter = 1,
+    playerOnePoints = 0,
+    playerTwoPoints = 0,
+    playing = false,
+    totalTime = 10000,
+    currentChoice;
+
+var rounds = {
+  "Gladiators": {
+    title: "Gladiators",
+    image: "http://i1.mirror.co.uk/incoming/article6243049.ece/ALTERNATES/s1200/Gladiators.jpg",
+    answers: ["Gladiators", "Blah", "Blah"]
+  },
+  "Fun House": {
+    title: "Fun House",
+    image: "http://beaut.ie/wp-content/uploads/2015/07/funhouse-2-1200x630-c-default.jpg",
+    answers: ["Blah", "Fun House", "Blah"]
+  },
+  "Noel's Houseparty": {
+    title: "Noel's Houseparty",
+    image: "http://i4.mirror.co.uk/incoming/article6193535.ece/ALTERNATES/s1200/Noel-Edmonds-with-Mr-Blobby.jpg",
+    answers: ["Blah", "Noel's Houseparty", "Blah"]
+  }
+  "Keenan & Kel": {
+    title: "Keenan & Kel",
+    image: "http://imagesmtv-a.akamaihd.net/uri/mgid:uma:image:mtv.com:10855702?quality=0.8&format=jpg&width=1440&height=810&.jpg",
+    answers: ["Blah", "Keenan & Kel", "Blah"]
+  }
+  "Keenan & Kel": {
+    title: "Keenan & Kel",
+    image: "http://imagesmtv-a.akamaihd.net/uri/mgid:uma:image:mtv.com:10855702?quality=0.8&format=jpg&width=1440&height=810&.jpg",
+    answers: ["Blah", "Keenan & Kel", "Blah"]
+  }
+}
+
+// Document Ready -> equivalent to window.onload, so you don't need both.
+$(initialize);
+
+function initialize(){
+  $("#startButton").on("click", start);
+  $(".answer").on("click", guess);
+}
+
+function getRoundLength(){
+  if (roundCounter === 1) return 320;
+  if (roundCounter === 2) return 500;
+  if (roundCounter === 3) return 700;
+}
+
+function start(){
+  if (playing) return false;
+  playing = true;
+
+  var choices    = Object.keys(rounds);
+  var randomName = choices[Math.floor(Math.random()* choices.length)];
+  currentChoice  = rounds[randomName];
+  $('.grid').css("background", "url('"+currentChoice.image+"')");
+  
+  // Add the answers from currentChoice.answers
+  $.each($('.answer'), function(index, element, array){
+    $(element).val(currentChoice.answers[index]);
+  })
+
+  var player   = (startClickCounter % 2 === 0) ? 2 : 1;
+  var level    = getRoundLength();
+
+  $("#display").val("ROUND "+ roundCounter +": PLAYER "+ player +" | Choose your answer from the 3 options below!");
+  hideSquares(level);
+
+  setTimeout(function(){
+    resetBoard();
+  }, totalTime + 2000)
+  
+  countdownTimer();
+  
+  (startClickCounter % 2 === 0) ? roundCounter++ : false;
+  startClickCounter++;
+}
+
+function hideSquares(level){      // when calling hideSquares in rounds, pass in msecs
+  var $squares = shuffleArray(); 
+  $.each($squares, function(index, element){
+    setTimeout(function(){
+      if (!playing) return false;
+      $(element).css("background", "none");
+    }, level * index+1);
+  }); 
+};
+
+function resetBoard(){
+  $('.square').css("background", "black");
+  playing = false;
+}
+
+function shuffleArray() {
+  var $lis = $("li");
+  for (var i = $lis.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = $lis[i];
+    $lis[i] = $lis[j];
+    $lis[j] = temp;
+  }
+  return $lis;
+};
+
+function countdownTimer(time) {
+  var counter  = 0
+  var interval = 1000;
+  var clock;
+  clock = setInterval(function() { //myinterval is not defined (at end of 10 sec countdown) Fuck knows.
+    var clockValue = (totalTime - counter) / 1000;
+    $("#timer").html(clockValue);
+    counter += interval;
+
+    if (clockValue === 0) return clearInterval(clock);
+  }, interval);
+}
+
+function guess(){
+  if (!playing) return false;
+  if ($(this).val() === currentChoice.title) {
+    console.log("correct");
+  } else {
+    console.log("incorrect");
+  }
+  resetBoard();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // --------------------------------------------------------------------------
 
-var display = document.getElementById("display")[0];
-var startButton = document.getElementById("startButton");
-var startClickCounter = 1;
-var roundCounter = 1;
-var playerOnePoints = 0;
-var playerTwoPoints = 0;
+
 
 // --------------------------------------------------------------------------
 
@@ -31,128 +173,6 @@ var playerTwoPoints = 0;
 // - Show 3 new options on the buttons, 1 of which is correct (Above)
 // - Action hideSquares() function - passing an argument relevant to the round, i.e. round 1: 300, 2: 500. 3: 700
 
-$(function(){
-
-  $("#startButton").on("click", function(){
-
-    if (roundCounter === 1) {  
-
-      if (startClickCounter % 2 === 0) { 
-        $("#display").val("ROUND 1: PLAYER 2 | Choose your answer from the 3 options below!"); 
-        var player = "player2";
-        console.log(player);
-        startClickCounter++; 
-        hideSquares(320);
-        roundCounter++;
-        // countdownTimer(); >>> myInterval not defined to stops running rest of round (BLOCKER)
-        // Run playerMove function
-
-      } else { //PLAYER 1
-        $("#display").val("ROUND 1: PLAYER 1 | Choose your answer from the 3 options below!");
-        var player = "player1";
-        console.log(player);
-        startClickCounter++;
-        hideSquares(320);
-        // countdownTimer(); 
-        // Run playerMove function
-      }
-
-    } else if (roundCounter === 2) { 
-      
-        if (startClickCounter % 2 === 0) { 
-          $("#display").val("ROUND 2: PLAYER 2 | Choose your answer from the 3 options below!"); 
-          var player = "player2";
-          startClickCounter++;
-          roundCounter++; 
-          hideSquares(500);
-          // countdownTimer();
-          // Run playerMove function
-
-        } else { //PLAYER 1
-          $("#display").val("ROUND 2: PLAYER 1 | Choose your answer from the 3 options below!");
-          var player = "player1";
-          startClickCounter++;
-          hideSquares(500);
-          // countdownTimer();
-          // Run playerMove function
-        }
-
-    } else if (roundCounter === 3) {
-
-        if (startClickCounter % 2 === 0) { 
-          $("#display").val("ROUND 3: PLAYER 2 | Choose your answer from the 3 options below!"); 
-          var player = "player2";
-          startClickCounter++;
-          roundCounter++;
-          hideSquares(700); 
-          // countdownTimer();
-          // Run playerMove function
-
-        } else { //PLAYER 1
-          $("#display").val("ROUND 3: PLAYER 1 | Choose your answer from the 3 options below!");
-          var player = "player1";
-          startClickCounter++;
-          hideSquares(700);
-          // countdownTimer();
-          // Run playerMove function
-        }
-
-    } else {
-      console.log("Game finished. Run winner function now");
-      //RUN OVERALL WINNER FUNCTION
-    }
-
-  });
-});
-
-
-
-// --------------------------------------------------------------------------
-
-//  --- BUILD: GRID  
-
-function hideSquares(level){      // when calling hideSquares in rounds, pass in msecs
- var $squares = shuffleArray(); 
- $.each($squares, function(index, element){
-  setTimeout(function(){
-    $(element).css("background", "none");
-  }, level * index+1);
-});
-};
-
-function shuffleArray() {
-  var $lis = $("li");
-  for (var i = $lis.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = $lis[i];
-    $lis[i] = $lis[j];
-    $lis[j] = temp;
-  }
-  return $lis;
-};
-
-// --------------------------------------------------------------------------
-
-// --- BUILD: TIMER
-// BLOCKER: my interval not defined
-
-function countdownTimer() {
-  console.log("Timer")
-
-  var i = 10;
-  var myinterval = setInterval(function() { //myinterval is not defined (at end of 10 sec countdown) Fuck knows.
-    $("#timer").html(i);
-
-    if (i === 0) {
-      clearInterval(myInterval);
-    }
-    else {
-      i--;
-    }
-  }, 1000);
-}
-
-}
 // --------------------------------------------------------------------------
 
 // --- BUILD: ROUND WINNER FUNCTION
@@ -200,53 +220,7 @@ function countdownTimer() {
 // When a player clicks the start button, and they enter into ROUND FRAMEWORK, this function needs to update the image behind the grid with a set collection of button options, one of which is the CORRECT answer
 // When the correct button is clicked, it will run a function declaring ROUND WINNER (above)
 
-//------>>>ROUND 1
 
-// R1, PLAYER 1
-// KENAN & KEL
-// IMG: http://imagesmtv-a.akamaihd.net/uri/mgid:uma:image:mtv.com:10855702?quality=0.8&format=jpg&width=1440&height=810&.jpg
-// BUTTONS (A,B,C): THE FRESH PRINCE, KENAN & KEL, LIVE & KICKING
-// >>>> ROUND 1 CLICK EVENT
-// if BUTTON === "B" : round win
-// else : round lose
-
-
-// R1, PLAYER 2
-// NOEL'S HOUSE PARTY
-// IMG: http://i4.mirror.co.uk/incoming/article6193535.ece/ALTERNATES/s1200/Noel-Edmonds-with-Mr-Blobby.jpg
-// BUTTONS (A,B,C): HOLLYOAKS, TFI FRIDAY, NOEL'S HOUSE PARTY
-// >>>> ROUND 2 CLICK EVENT
-// if BUTTON === "C" : round win
-// else : round lose
-
-
-//------>>>ROUND 2
-
-// R2, PLAYER 1
-// GLADIATORS
-// IMG: http://i1.mirror.co.uk/incoming/article6243049.ece/ALTERNATES/s1200/Gladiators.jpg
-// BUTTONS (A,B,C): GLADIATORS, SAVED BY THE BELL, WWF
-// >>>> ROUND 3 CLICK EVENT
-// if BUTTON === "B": round win
-// else : round lose
-
-//R2, PLAYER 2
-// FUN HOUSE
-//IMG:
-//BUTTONS: NEIGHBOURS, FUN HOUSE, TFI FRIDAY
-
-
-//------>>>ROUND 3
-
-//R3, PLAYER 1
-//SOMEONE:
-//IMG:
-//BUTTONS:
-
-//R3, PLAYER 2
-//SOMEONE:
-//IMG:
-//BUTTONS:
 
 
 // --------------------------------------------------------------------------

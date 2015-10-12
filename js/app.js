@@ -2,14 +2,40 @@ window.onload = function(){
 
 // --------------------------------------------------------------------------
 
-  var display = document.getElementById("display")[0];
-  var startButton = document.getElementById("startButton");
-  var startClickCounter = 1;
+var display = document.getElementById("display")[0];
+var startButton = document.getElementById("startButton");
+var startClickCounter = 1;
+var playerOnePoints = 0;
+var playerTwoPoints = 0;
 
 // --------------------------------------------------------------------------
 
 // --- BUILD: ROUND WINNER FUNCTION
+
+function roundWinner() {
+  // function will be invoked by a 'playerGuess' function when the player guesses CORRECTLY
+
+  //if startClickCounter % 2 === 0 (PLAYER 2)
+  //take in level, show 'WIN' on scoreboard for that level, increase playerTwoPoints by 1
+ 
+  //else (PLAYER 1)
+  //show 'win' on scoreboard for that level, increase playerOnePoints by 1
+}
+
 // --- BUILD: ROUND LOSER FUNCTION 
+
+function roundLoser() {
+  // function will be invoked by a 'playerGuess' function when the player guesses INCORRECTLY OR TIMER TIMES OUT
+
+  //if startClickCounter % 2 === 0 (PLAYER 2)
+  //take in round (1,2,3), show 'LOSE' on scoreboard for that round
+ 
+  //else (PLAYER 1)
+  //show 'win' on scoreboard for that level, increase player(number)Points by 1
+}
+
+
+
 // --- BUILD: OVERALL WINNER FUNCTION
 
 // --------------------------------------------------------------------------
@@ -29,7 +55,7 @@ window.onload = function(){
 // - Up the startClickCounter value (to move the game along)
 
 // ***TO DO
-// - Start timer countdown (BLOCKER: need to build timer first)
+// - Start timer countdown (BLOCKER: need to fix timer first)
 // - Render a new image behind the grid (Compile 6 images, 18 options - 6 of which match the images for each round - static in v1)
 // - Show 3 new options on the buttons, 1 of which is correct (Above)
 // - Action hideSquares() function - passing an argument relevant to the round, i.e. round 1: 300, 2: 500. 3: 700
@@ -44,12 +70,14 @@ $(function(){
       if (startClickCounter % 2 === 0) { //PLAYER 2
         $("#display").val("ROUND 1: PLAYER 2 | Choose your answer from the 3 options below!"); 
         startClickCounter++; 
-        // updateTimer();
+        hideSquares(320);
+        // countdownTimer();
 
       } else { //PLAYER 1
         $("#display").val("ROUND 1: PLAYER 1 | Choose your answer from the 3 options below!");
         startClickCounter++;
-        // updateTimer();
+        hideSquares(320);
+        // countdownTimer(); // myInterval not defined to stops running rest of round (BLOCKER)
       }
 
     } else if (startClickCounter < 5) { // ROUND 2
@@ -58,12 +86,14 @@ $(function(){
       if (startClickCounter % 2 === 0) { //PLAYER 2
         $("#display").val("ROUND 2: PLAYER 2 | Choose your answer from the 3 options below!"); 
         startClickCounter++; 
-        // updateTimer();
+        hideSquares(500);
+        // countdownTimer();
 
       } else { //PLAYER 1
         $("#display").val("ROUND 2: PLAYER 1 | Choose your answer from the 3 options below!");
         startClickCounter++;
-        // updateTimer();
+        hideSquares(500);
+        // countdownTimer();
       }
 
     } else if (startClickCounter < 7) {
@@ -71,13 +101,15 @@ $(function(){
 
       if (startClickCounter % 2 === 0) { //PLAYER 2
         $("#display").val("ROUND 3: PLAYER 2 | Choose your answer from the 3 options below!"); 
-        startClickCounter++; 
-        // updateTimer();
+        startClickCounter++;
+        hideSquares(700); 
+        // countdownTimer();
 
       } else { //PLAYER 1
         $("#display").val("ROUND 3: PLAYER 1 | Choose your answer from the 3 options below!");
         startClickCounter++;
-        // updateTimer();
+        hideSquares(700);
+        // countdownTimer();
       }
 
     } else {
@@ -100,43 +132,42 @@ function hideSquares(level){      // when calling hideSquares in rounds, pass in
   setTimeout(function(){
     $(element).css("background", "none");
   }, level * index+1);
- });
+});
 };
 
 function shuffleArray() {
   var $lis = $("li");
-    for (var i = $lis.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = $lis[i];
-        $lis[i] = $lis[j];
-        $lis[j] = temp;
-    }
-    return $lis;
+  for (var i = $lis.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = $lis[i];
+    $lis[i] = $lis[j];
+    $lis[j] = temp;
+  }
+  return $lis;
 }
 
 // --------------------------------------------------------------------------
 
 // --- TIMER
-// Basic framework pulled from Alastair, need to find a way to incorporate and display on page (EI)
+// BLOCKER: my interval not defined
+// Annoyingly slow to start (delays 1 sec GRRRR!)
 
-//  function updateTimer(){
-//   play = true; //"whilst play = true do this..." (EI)
-//   var counter = 10; //10 secs timer (EI)
+function countdownTimer() {
+  console.log("Timer")
 
-//   var A = setInterval(function(){
-//     counter --;
-//     if(counter >= 0){
-//       return timer.html(counter); //we have 'timer' present in HTML (EI)
-//     } else {
-//       return $('ul').html("GAME OVER!" + "<br/>" + "You Scored " + playerScore + " Points"); //will need to adapt majorly here (EI)
-//       play = false;
-//       // Clear all squares and everything else! //refill all squares - (Alastair's code) //"whilst play = true do this..." (EI)
-//     }
-//   }, 1000); // Possibly not required (EI)
-// } 
+  var i = 10;
+  var myinterval = setInterval(function() { //myinterval is not defined (at end of 10 sec countdown) Fuck knows.
+    $("#timer").html(i);
 
+    if (i === 0) {
+      clearInterval(myInterval);
+    }
+        else {
+          i--;
+        }
+      }, 1000);
+}
 // --------------------------------------------------------------------------
-
 
 
 }

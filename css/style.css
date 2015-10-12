@@ -173,6 +173,7 @@ input[type=startButton] {
   color: white;
   text-align: center;
   line-height: 60px;
+  margin-left: 300px;
 }
 
 #playerTwo {

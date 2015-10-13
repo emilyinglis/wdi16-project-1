@@ -8,8 +8,30 @@ body {
   padding: 0;
 }
 
+body:before, body:after {
+    content: "";
+    position: fixed;
+    background: url("../images/tv-top.png");
+    background-size: 20%;
+    left: 0;
+    right: 0;
+    height: 50px;
+}
+body:before {
+    top: 0;
+}
+body:after {
+    bottom: 0;
+}
+body {
+    border-left: 10px solid red;
+    border-right: 10px solid red;  
+}
+
+
 header {
-  background: white;
+  background: black;
+  background: url("../images/flashback-title.png");
   color: black;
   height: 46px;
   text-align: center;

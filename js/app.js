@@ -1,11 +1,13 @@
 var display,
-startClickCounter = 1, 
-roundCounter = 1,
+startClickCounter = 0, 
+roundCounter = 0,
 playerOnePoints = 0,
 playerTwoPoints = 0,
 playing = false,
 totalTime = 10000,
-currentChoice;
+currentChoice,
+clock;
+
 
 var rounds = {
   "Gladiators": {
@@ -78,14 +80,17 @@ function initialize(){
 }
 
 function getRoundLength(){
-  if (roundCounter === 1) return 800;
-  if (roundCounter === 2) return 1000;
-  if (roundCounter === 3) return 1200;
+  if (roundCounter === 1) return 1500;
+  if (roundCounter === 2) return 2000;
+  if (roundCounter === 3) return 2500;
 }
 
 function start(){
   if (playing) return false;
   playing = true;
+
+  (startClickCounter % 2 === 0) ? roundCounter++ : false;
+  startClickCounter++;
 
   var choices    = Object.keys(rounds);
   var randomName = choices[Math.floor(Math.random()* choices.length)];
@@ -101,16 +106,15 @@ function start(){
   var level    = getRoundLength();
 
   $("#display").val("ROUND "+ roundCounter +": PLAYER "+ player +" | Choose your answer from the 3 options below!");
-  hideSquares(level);
 
   setTimeout(function(){
     resetBoard();
   }, totalTime + 2000)
 
   countdownTimer();
+
   
-  (startClickCounter % 2 === 0) ? roundCounter++ : false;
-  startClickCounter++;
+
 }
 
 function hideSquares(level){      // when calling hideSquares in rounds, pass in msecs
@@ -125,6 +129,7 @@ function hideSquares(level){      // when calling hideSquares in rounds, pass in
 
 function resetBoard(){
   $('.square').css("background", "black");
+  clearInterval(clock)
   playing = false;
 }
 
@@ -142,12 +147,13 @@ function shuffleArray() {
 function countdownTimer(time) { 
   var counter  = 0
   var interval = 1000;
-  var clock;
   clock = setInterval(function() {
+    var level = getRoundLength()
     if (!playing) return false; 
     var clockValue = (totalTime - counter) / 1000;
     $("#timer").html(clockValue);
     counter += interval;
+    hideSquares(level);
 
     if (clockValue === 0) return clearInterval(clock);
   }, interval);
@@ -155,33 +161,21 @@ function countdownTimer(time) {
 
 function guess(){
   var player   = (startClickCounter % 2 === 0) ? 2 : 1;
-  // var playerOneResults   = document.getElementsByID
 
   if (!playing) return false;
   if ($(this).val() === currentChoice.title) {
-    if (player === 1) {
-      $("#display").val("Congrats Player 2! You nailed that round. Player 1, you know the drill - click START now."); 
 
-        //Updating scoreboard / points
-        // if ("#levelPoints1") !== "" { //if DOES NOT contain an empty string (i.e. has win/lose there) then move on
-        // } else {
-        //   ("#levelPoints1").val("WIN");
-        //  playerTwoPoints++;   
-        // }
-        
-      } else {
-        $("#display").val("Congrats Player 1! You killed it. So Player 2 you're up. Click Start now.");
-      }
-    } else {
-
-      //Updating scoreboard / points
-      // if ("#levelPoints1") !== "" { //if the level points element DOES NOT contain an empty string (i.e. has win/lose) then move on
-      // } else {
-      //   ("#levelPoints1").val("LOSE");  
-      // }
-
+    $('#levelPoints'+roundCounter+'Player'+player).val("WIN")
+    if(player===1){
+      playerOnePoints++
+    }else{
+      playerTwoPoints++
     }
-// resetTimer(); (BLOCKER)
+
+  } else {
+    $('#levelPoints'+roundCounter+'Player'+player).val("LOST")
+  }
+
 resetBoard();
 }
 

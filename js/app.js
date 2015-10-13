@@ -81,8 +81,8 @@ function initialize(){
 
 function getRoundLength(){
   if (roundCounter === 1) return 1500;
-  if (roundCounter === 2) return 2000;
-  if (roundCounter === 3) return 2500;
+  if (roundCounter === 2) return 5000;
+  if (roundCounter === 3) return 1000;
 }
 
 function start(){
@@ -105,7 +105,7 @@ function start(){
   var player   = (startClickCounter % 2 === 0) ? 2 : 1;
   var level    = getRoundLength();
 
-  $("#display").val("ROUND "+ roundCounter +": PLAYER "+ player +" | Choose your answer from the 3 options below!");
+  $("#display").val("ROUND "+ roundCounter +": PLAYER "+ player +" | You've 5 seconds on the clock. Select your answer using the buttons below!");
 
   setTimeout(function(){
     resetBoard();
@@ -167,8 +167,10 @@ function guess(){
 
     $('#levelPoints'+roundCounter+'Player'+player).val("WIN")
     if(player===1){
+      $("#display").val("Nice work Player 1. Player 2, let's see what you can do. Click START now!");
       playerOnePoints++
     }else{
+      $("#display").val("Check you out Player 2! Player 1, you know the drill - get clicking that START button!");
       playerTwoPoints++
     }
 

@@ -1,3 +1,20 @@
+$(document).ready(function(){
+  $(".Modal").hide();
+    $(".trigger-button").click(function(){
+      $(".Modal").fadeToggle(1000);
+    });
+    $(".Close").click(function(){
+      $(".Modal").fadeOut();
+    });
+});
+// Esc Key, hide menu.
+$(document).keydown(function(e) {
+if(e.keyCode == 27) {
+    $(".Modal").hide(300);
+}
+});
+
+
 var display,
 startClickCounter = 0, 
 roundCounter = 0,
@@ -178,7 +195,7 @@ function guess(){
     $('#levelPoints'+roundCounter+'Player'+player).val("LOST")
   }
 
-resetBoard();
+  resetBoard();
 }
 
 

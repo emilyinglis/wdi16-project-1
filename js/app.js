@@ -134,7 +134,7 @@ function start(){
 
 }
 
-function hideSquares(level){      // when calling hideSquares in rounds, pass in msecs
+function hideSquares(level){      
   var $squares = shuffleArray(); 
   $.each($squares, function(index, element){
     setTimeout(function(){
@@ -192,41 +192,11 @@ function guess(){
     }
 
   } else {
-    $('#levelPoints'+roundCounter+'Player'+player).val("LOST")
+    $('#levelPoints'+roundCounter+'Player'+player).val("LOSE")
   }
 
   resetBoard();
 }
-
-
-
-
-
-// ---------------------------------------
-
-//BLOCKERS
-
-
-//Reset Timer (when reset board)
-// When a player chooses one of the options, the timer should stop and reset. Close to working but still far.
-
-// function resetTimer(){
-//   var clockValue = 0;
-//   $("#timer").html(clockValue);
-//   playing = false;
-// }
-
-// -------
-
-// BUILD function: when timer ends, the player in play should 'lose'
-// Haven't had a chance to tackle yet as still stuck on updating scoreboard
-
-// function guess()
-// Update player scoreboard (win/lose) and increase points 
-// Win: lines 175-180
-// Lose: 189-193
-
-
 
 
 

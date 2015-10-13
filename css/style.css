@@ -18,6 +18,8 @@ header {
   border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
+/*instructions modal starts*/
+
 .Modal {
   height: 100%;
   width: 100%;
@@ -57,10 +59,12 @@ header {
   cursor: pointer;
 }
 
+/*instructions modal ends*/
 
 li {
   list-style-type: none;
 }
+
 
 #playerOne {
   margin: 87px 38px 10px 20px;
@@ -232,8 +236,6 @@ input[type=display] {
   text-align: center;
 
 }
-
-
 
 /*GRID STARTS*/
 

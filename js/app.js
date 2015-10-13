@@ -4,13 +4,13 @@ $(document).ready(function(){
       $(".Modal").fadeToggle(1000);
     });
     $(".Close").click(function(){
-      $(".Modal").fadeOut();
+      $(".Modal").fadeOut(1000);
     });
 });
 // Esc Key, hide menu.
 $(document).keydown(function(e) {
 if(e.keyCode == 27) {
-    $(".Modal").hide(300);
+    $(".Modal").fadeOut(1000);
 }
 });
 

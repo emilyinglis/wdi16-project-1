@@ -16,6 +16,7 @@ header {
   text-align: center;
   line-height: 100px;
   border-bottom: 1px solid rgba(0,0,0,0.15);
+  margin-top: 20px;
 }
 
 /*instructions modal starts*/

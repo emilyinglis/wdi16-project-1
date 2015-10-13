@@ -8,63 +8,24 @@ body {
   list-style-type: none;
 }
 
-/*body:before, body:after {
-    content: "";
-    position: fixed;
-    left: 0;
-    right: 0;
-    height: 50px;
-}
-body:before {
-    top: 0;
-    background: url("../images/tv-top.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-body:after {
-    bottom: 0;
-    background: url("../images/tv-bottom.png");
-    background-size: 100%;
-    background-repeat: no-repeat;*/
-}
 
-/*body:left{
-  left: 0;
-  background: url("../images/tv-left.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
-}*/
 
-/*body:right{
-  left: 0;
-  background: url("../images/tv-right.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
-}*/
-/*
-body {
-    border-left: 10px solid red;
-    border-right: 10px solid red;  
-}*/
-
-/*
 header {
-/*  background: black;*/
-/*  background: url("../images/flashback-title.png");
-  background-repeat: no-repeat;
-  background-size: 20%;
-  color: black;
+  background: black;
+  background: url("../images/flashback-title.png") no-repeat center;
+  background-size: 40%;
   height: 100px;
   text-align: center;
-  line-height: 100px;*/
-/*  border-bottom: 1px solid rgba(0,0,0,0.15);*/
+  line-height: 100px;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
 
 li {
   list-style-type: none;
 }
 
 #playerOne {
-  margin: 87px 10px 10px 20px;
+  margin: 87px 38px 10px 20px;
   float: left;
   width: 250px; 
 }
@@ -73,11 +34,11 @@ li {
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
   width: 220px;
   height: 220px;
-  background: url("../images/player-1-pic.png");
+  background: url("../images/player-1-pic.png") no-repeat center;
   background-size: 80%;
-  background-repeat: no-repeat;
   color: black;
   text-align: center;
 }
@@ -87,7 +48,7 @@ li {
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
-  width: 220px;
+  width: 205px;
   height: 220px;
   background: white;
   color: black;
@@ -128,6 +89,8 @@ li {
   width: 90px;
   height: 51px;
   border: none;
+  text-align: center;
+  font-weight: bold;
 }
 
 #mainBody {
@@ -136,97 +99,73 @@ li {
   float: left;
 }
 
-/*#display {
-  width: 820px;
-  height: 75px;
-  background: white;
-  border-bottom: 2px solid black;
-  color: black;
-  line-height: 75px;
-  text-align: center;
-}*/
 
 input[type=display] { 
   width: 820px;
   height: 75px;
   background: black;
-  border-bottom: 2px solid black;
   color: white;
   line-height: 75px;
   text-align: center;
   border: none;
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: bold;
 }
 
 #roundOptions {
   width: 820px;
   height: 75px;
-  background: white;
-  border-bottom: 2px solid black;
-  color: black;
+  border: 10px solid white;
+  background: black;
+  color: white;
   line-height: 75px;
   text-align: center;
 }
 
-.optionButtons { 
+.answer {
   background-color: white;
   color: black;
-  line-height: 49px;
+  line-height: 43px;
   text-align: center;
-  padding: 5px;
-  margin: 0 auto;
-  width: 115px;
-  height: 49px;
-  float: left;
-}
-
-input[type=button] { 
+  font-weight: bold;
   padding: 3px;
   margin: 0 auto;
-  width: 115px;
+  width: 250px;
   height: 51px;
-  border-top: 0px;
-  float: left;
+  border: 1px solid black;
+  margin: 11px;
 }
 
+/*exact same as above*/ 
 #startAndTimer {
   width: 820px;
   height: 75px;
-  background: white;
-  border-bottom: 2px solid black;
+  border: 10px solid white;
+  background: black;
   color: black;
   line-height: 75px;
   text-align: center;
 }
 
-#startTimerContainer {
-  width: 400px;
-  height: 75px;
-  margin-left: 200px;
-  margin-right: 200px;
-}
-
 input[type=startButton] { 
-  padding: 3px;
-  background: green;
-  border: 1px solid green;
-  border-radius: 20%;
-  width: 100px;
-  height: 60px;
+  background: black;
+  width: 200px;
+  height: 50px;
   float: left;
   text-align: center;
-  line-height: 60px;
+  line-height: 50px;
+  font-weight: bold;
+  color: white;
 }
 
 #timer {
-  width: 150px;
-  height: 60px;
-  background-color: black;
-  color: white;
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  color: black;
   text-align: center;
-  line-height: 60px;
+  line-height: 50px;
   margin-left: 300px;
 }
 
@@ -240,13 +179,14 @@ input[type=startButton] {
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
   width: 220px;
   height: 220px;
-  background: url("../images/player-2-pic.png");
+  background: url("../images/player-2-pic.png") no-repeat center;
   background-size: 80%;
-  background-repeat: no-repeat;
   color: black;
   text-align: center;
+
 }
 
 

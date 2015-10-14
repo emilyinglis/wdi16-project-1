@@ -97,9 +97,9 @@ function initialize(){
 }
 
 function getRoundLength(){
-  if (roundCounter === 1) return 1500;
-  if (roundCounter === 2) return 5000;
-  if (roundCounter === 3) return 1000;
+  if (roundCounter === 1) return 1000; 
+  if (roundCounter === 2) return 5000; 
+  if (roundCounter === 3) return 10000; 
 }
 
 function start(){

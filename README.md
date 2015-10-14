@@ -50,8 +50,9 @@ A significant win was the basis of my HTML and CSS. I spent a significant amount
 1. I started by writing out in full, the entire game process [http://bit.ly/flashback-writeup] (IMG 1)
 2. Using the write up, I went through and picked out every example where I would require building functionality 
 3. Moving over to my Trello board, I created tickets based on this functionality - using 'As a user I need to...' to ensure I focussed on the must have, should have, nice to haves - and then labeled them HTML/CSS, JS, etc. Finally I ordered them, and ice-boxed the 'Nice to have' tickets. (IMG 2)
-4. Working through Trello, I was able to first build a very basic HTML/CSS* skeleton from which to hang my initial JS functionality. (IMG 3) To support this process, I first storyboarded by hand and transferred this skeleton onto the pageusing HTML/CSS.
-5. Once this was complete, I moved onto the JS working consistently until it was near to complete.
-6. By this point, I was able to 'fill out' the HTML/CSS skeleton and create an identity for the game, ultimately completing the work. 
+4. Next - by hand for speed - I worked on wireframing and basic storyboarding (basic as a one pager)
+5. Working through Trello and using my wireframe/storyboard, I was able to build a very basic HTML/CSS* skeleton from which to hang my initial JS functionality. (IMG 3) 
+6. Once this was complete, I moved onto the JS working consistently until it was near to complete.
+7. By this point, I was able to 'fill out' the HTML/CSS skeleton and create an identity for the game, ultimately completing the work. 
 
 *Note. next time I would spend more time upfront working on the decorative aspects of the project as it become painful to witness such an unattractive product when consistently testing JS functionality. 

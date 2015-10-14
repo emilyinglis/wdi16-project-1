@@ -8,7 +8,8 @@ In FLASHBACK, we'll take you straight back to a time when a hash didn't have a t
 
 In this nostalgia-packed game, we've two players battling against the clock over 3 rounds, to correctly guess the hit show hidden beneath the squares. Sound easy? Think again. With every round the squares reveal less and less making a 'WIN' even harder. 
 
-##### [Click here to play FLASHBACK now!](https://morning-springs-8288.herokuapp.com/ "Here!")
+##### [Click here to play FLASHBACK now!](https://tv-flashback.herokuapp.com/ "Here!")
+
 
 ![](./images/readme-screen1.png)
 
@@ -47,9 +48,9 @@ A significant win was the basis of my HTML and CSS. I spent a significant amount
 
 ![](./images/prework-readme.png)
 
-1. I started by writing out in full, the entire game process [http://bit.ly/flashback-writeup] (IMG 1)
+1. I started by writing out in full, the entire game process (IMG 1) - [View here](http://bit.ly/flashback-writeup "here") 
 2. Using the write up, I went through and picked out every example where I would require building functionality 
-3. Moving over to my Trello board, I created tickets based on this functionality - using 'As a user I need to...' to ensure I focussed on the must have, should have, nice to haves - and then labeled them HTML/CSS, JS, etc. Finally I ordered them, and ice-boxed the 'Nice to have' tickets. (IMG 2)
+3. Moving over to my Trello board - [view here](https://trello.com/b/6B9B0RCr/wdi16-project-1 "here") - I created tickets based on this functionality - using 'As a user I need to...' to ensure I focussed on the must have, should have, nice to haves - and then labeled them HTML/CSS, JS, etc. Finally I ordered them, and ice-boxed the 'Nice to have' tickets. (IMG 2)
 4. Next - by hand for speed - I worked on wireframing and basic storyboarding (basic as a one pager)
 5. Working through Trello and using my wireframe/storyboard, I was able to build a very basic HTML/CSS* skeleton from which to hang my initial JS functionality. (IMG 3) 
 6. Once this was complete, I moved onto the JS working consistently until it was near to complete.

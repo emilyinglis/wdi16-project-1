@@ -124,9 +124,9 @@ function start(){
 
   $("#display").val("ROUND "+ roundCounter +": PLAYER "+ player +" | You've 5 seconds on the clock. Select your answer using the buttons below!");
 
-  setTimeout(function(){
-    resetBoard();
-  }, totalTime + 2000)
+  // setTimeout(function(){
+  //   resetBoard();
+  // }, totalTime + 2000)
 
   countdownTimer();
 
@@ -172,7 +172,14 @@ function countdownTimer(time) {
     counter += interval;
     hideSquares(level);
 
-    if (clockValue === 0) return clearInterval(clock);
+    if (clockValue === 0){ 
+      var player   = (startClickCounter % 2 === 0) ? 2 : 1;
+
+      $('#levelPoints'+roundCounter+'Player'+player).val("LOSE")
+      resetBoard();
+
+      return clearInterval(clock);
+    }
   }, interval);
 }
 

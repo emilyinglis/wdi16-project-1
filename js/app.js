@@ -124,13 +124,7 @@ function start(){
 
   $("#display").val("ROUND "+ roundCounter +": PLAYER "+ player +" | You've 5 seconds on the clock. Select your answer using the buttons below!");
 
-  // setTimeout(function(){
-  //   resetBoard();
-  // }, totalTime + 2000)
-
   countdownTimer();
-
-  
 
 }
 
